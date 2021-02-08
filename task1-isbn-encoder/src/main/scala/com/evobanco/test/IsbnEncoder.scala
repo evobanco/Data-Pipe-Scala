@@ -15,6 +15,7 @@ class IsbnEncoderImplicit(df: DataFrame) extends Serializable {
     * @return a data frame with new rows for each element of the ISBN code
     */
   def explodeIsbn(): DataFrame = {
+    df.show();
     df
   }
 }
