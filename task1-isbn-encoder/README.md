@@ -2,18 +2,18 @@
 
 The function should check if the content in column _isbn_ is a [valid 13-digit isbn code](https://en.wikipedia.org/wiki/International_Standard_Book_Number) and create new rows for each part of the ISBN code.
 
-#### Describe your solution
-In my solution I first filter out records having valid ISBN using a regex expression.
-Run map function on theses records to create 3 more records as per the ISBN specifications.
-Union of the two dataframes.
+#### Describe your solution by Santiago Pinto Castro
+In the solution, I first separate the data into two different dataframes according to which of they match the correct 
+format of the ISBN field or not. In the case of the rows that had a valid format of the ISBN field, the substring 
+corresponding to each one of the parts that compouse the ISBN was exploited. For non-compliant rows, the input row was 
+returned without any additional operations. The result is the union between the two dataframes.
 
 **Advantages:**
 Leveraged Dataframes and its functions 
 
 **Disadvantages:**
-Can we done by the explode function as per our discussion.
-
-__TODO:__ Please explain your solution briefly and highlight the advantages and disadvantages of your implementation.
+Explode a large amount of data could cause performance problems, maybe a better solution is change spark SQL by 
+streams and use flatmap to generate the new records.
 
 ### Example
 
