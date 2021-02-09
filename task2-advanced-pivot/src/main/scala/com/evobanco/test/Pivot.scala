@@ -24,6 +24,7 @@ class PivotImplicit(df: DataFrame) extends Serializable {
     * @return machine data pivoted
     */
   def getTests(): DataFrame = {
+    df.filter(col(""))
     df
   }
 
