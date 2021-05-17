@@ -4,19 +4,18 @@ The module pivots the machine data and generates a feature matrix. The feature m
 
 #### Describe your solution
 
-In my solution I have used SparkSQL  and First and Last value window functions.
-Created separate Dataframes for Measures and Test.
-Join the two Dataframes on part number and aggregation mode.
+In my solution I have defined a function to get the rows with max and min timestamp of a DataFrame over a given window. 
+That function is applied to both test and measurements DataFrames, previously filtered. 
+Then the measurements names and values are collected as a list of structs for each first and last row of the part field, 
+and that is joined to the test resulting DataFrame.
 
 **Advantages:**
 Leveraged SparkSQL and Dataframes
 
 **Disadvantages:**
-Could not manage Features in Array Struct type.Converted the test cases accordingly.
+The solution can be scaled for a larger number of test, but window functions may not have the better performance with a large number of input rows. 
+For better perfomance, repartition the DataFrames may be considered.
 
-
-
-__TODO:__ Please explain your solution briefly and highlight the advantages and disadvantages of your implementation. Will it scale for a large number of tests?
 
 ### Output schema
 
